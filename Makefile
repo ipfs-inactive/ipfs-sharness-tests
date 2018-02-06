@@ -21,7 +21,6 @@ help:
 
 clean: clean-test-results
 	@echo "*** $@ ***"
-	-rm -rf ../bin/ipfs
 
 clean-test-results:
 	@echo "*** $@ ***"
@@ -40,10 +39,6 @@ deps: sharness $(BINS) curl
 sharness:
 	@echo "*** checking $@ ***"
 	lib/install-sharness.sh
-
-../bin/ipfs:
-	mkdir -p ../bin
-	cd ../bin && ln -s ../../src/cli/bin.js ipfs
 
 curl:
 	@which curl >/dev/null || (echo "Please install curl!" && false)
