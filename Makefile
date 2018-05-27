@@ -12,6 +12,7 @@ AGGREGATE = $(LIBDIR)/$(SHARNESSDIR)/aggregate-results.sh
 
 BINS = bin/ipfs
 BINS += bin/go-sleep
+BINS += bin/pollEndpoint
 
 all: aggregate
 
@@ -45,6 +46,11 @@ bin/go-sleep:
 	@echo "*** building $@ ***"
 	go get -d github.com/chriscool/go-sleep
 	go build -o $@ github.com/chriscool/go-sleep
+
+bin/pollEndpoint:
+	@echo "*** building $@ ***"
+	go get -d github.com/whyrusleeping/pollEndpoint
+	go build -o $@ github.com/whyrusleeping/pollEndpoint
 
 curl:
 	@which curl >/dev/null || (echo "Please install curl!" && false)
