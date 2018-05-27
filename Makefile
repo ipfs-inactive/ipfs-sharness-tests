@@ -13,6 +13,7 @@ AGGREGATE = $(LIBDIR)/$(SHARNESSDIR)/aggregate-results.sh
 BINS = bin/ipfs
 BINS += bin/go-sleep
 BINS += bin/pollEndpoint
+BINS += bin/random
 
 all: aggregate
 
@@ -51,6 +52,11 @@ bin/pollEndpoint:
 	@echo "*** building $@ ***"
 	go get -d github.com/whyrusleeping/pollEndpoint
 	go build -o $@ github.com/whyrusleeping/pollEndpoint
+
+bin/random:
+	@echo "*** building $@ ***"
+	go get -d github.com/jbenet/go-random
+	go build -o $@ github.com/jbenet/go-random/random
 
 curl:
 	@which curl >/dev/null || (echo "Please install curl!" && false)
