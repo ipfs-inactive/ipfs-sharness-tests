@@ -12,6 +12,7 @@ AGGREGATE = $(LIBDIR)/$(SHARNESSDIR)/aggregate-results.sh
 
 BINS = bin/ipfs
 BINS += bin/go-sleep
+BINS += bin/go-timeout
 BINS += bin/pollEndpoint
 BINS += bin/random
 BINS += bin/random-files
@@ -48,6 +49,11 @@ bin/go-sleep:
 	@echo "*** building $@ ***"
 	go get -d github.com/chriscool/go-sleep
 	go build -o $@ github.com/chriscool/go-sleep
+
+bin/go-timeout:
+	@echo "*** building $@ ***"
+	go get -d github.com/Kubuxu/go-timeout
+	go build -o $@ github.com/Kubuxu/go-timeout
 
 bin/pollEndpoint:
 	@echo "*** building $@ ***"
