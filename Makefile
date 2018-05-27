@@ -11,6 +11,7 @@ SHARNESSDIR = sharness
 AGGREGATE = $(LIBDIR)/$(SHARNESSDIR)/aggregate-results.sh
 
 BINS = bin/ipfs
+BINS += bin/go-sleep
 
 all: aggregate
 
@@ -39,6 +40,11 @@ deps: sharness $(BINS) curl
 sharness:
 	@echo "*** checking $@ ***"
 	lib/install-sharness.sh
+
+bin/go-sleep:
+	@echo "*** building $@ ***"
+	go get -d github.com/chriscool/go-sleep
+	go build -o $@ github.com/chriscool/go-sleep
 
 curl:
 	@which curl >/dev/null || (echo "Please install curl!" && false)
