@@ -14,6 +14,7 @@ BINS = bin/ipfs
 BINS += bin/go-sleep
 BINS += bin/pollEndpoint
 BINS += bin/random
+BINS += bin/random-files
 
 all: aggregate
 
@@ -57,6 +58,11 @@ bin/random:
 	@echo "*** building $@ ***"
 	go get -d github.com/jbenet/go-random
 	go build -o $@ github.com/jbenet/go-random/random
+
+bin/random-files:
+	@echo "*** building $@ ***"
+	go get -d github.com/jbenet/go-random-files
+	go build -o $@ github.com/jbenet/go-random-files/random-files
 
 curl:
 	@which curl >/dev/null || (echo "Please install curl!" && false)
