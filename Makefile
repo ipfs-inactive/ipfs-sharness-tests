@@ -18,6 +18,8 @@ BINS += bin/random
 BINS += bin/random-files
 BINS += bin/ma-pipe-unidir
 BINS += bin/multihash
+BINS += bin/hang-fds
+BINS += bin/iptb
 
 all: aggregate
 
@@ -80,6 +82,16 @@ bin/multihash:
 	@echo "*** building $@ ***"
 	go get -d github.com/multiformats/go-multihash
 	go build -o $@ github.com/multiformats/go-multihash/multihash
+
+gx-path = gx/ipfs/$(shell gx deps find $(1))/$(1)
+
+bin/hang-fds:
+	@echo "*** building $@ ***"
+	go build -o $@ "$(call gx-path,$(notdir $@))"
+
+bin/iptb:
+	@echo "*** building $@ ***"
+	go build -o $@ "$(call gx-path,$(notdir $@))"
 
 curl:
 	@which curl >/dev/null || (echo "Please install curl!" && false)
