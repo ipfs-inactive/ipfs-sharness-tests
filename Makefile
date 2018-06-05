@@ -17,6 +17,7 @@ BINS += bin/pollEndpoint
 BINS += bin/random
 BINS += bin/random-files
 BINS += bin/ma-pipe-unidir
+BINS += bin/multihash
 
 all: aggregate
 
@@ -74,6 +75,11 @@ bin/random-files:
 bin/ma-pipe-unidir:
 	@echo "*** building $@ ***"
 	cd dependencies/ma-pipe-unidir && go build -o ../../$@
+
+bin/multihash:
+	@echo "*** building $@ ***"
+	go get -d github.com/multiformats/go-multihash
+	go build -o $@ github.com/multiformats/go-multihash/multihash
 
 curl:
 	@which curl >/dev/null || (echo "Please install curl!" && false)
