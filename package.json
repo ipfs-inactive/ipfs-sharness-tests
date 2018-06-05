@@ -1,0 +1,27 @@
+{
+  "author": "chriscool",
+  "bugs": {
+    "url": "https://github.com/chriscool/ipfs-sharness-tests/issues/"
+  },
+  "gxDependencies": [
+    {
+      "author": "whyrusleeping",
+      "hash": "QmTD9SdvPDfzdQrBq4iSD3LDDaM3dKHtvvuGbqzMGUHkat",
+      "name": "iptb",
+      "version": "1.3.0"
+    },
+    {
+      "author": "whyrusleeping",
+      "hash": "QmdBE7cR24tR3VSUVHfDDpXD2bAmWier6LC2QZvQX9eQjb",
+      "name": "hang-fds",
+      "version": "0.0.9"
+    }
+  ],
+  "gxVersion": "0.12.1",
+  "language": "sh",
+  "license": "MIT",
+  "name": "ipfs-sharness-tests",
+  "releaseCmd": "git commit -a -m \"gx publish $VERSION\"",
+  "version": "0.0.1"
+}
+
