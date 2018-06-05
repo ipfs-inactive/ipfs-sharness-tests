@@ -16,6 +16,7 @@ BINS += bin/go-timeout
 BINS += bin/pollEndpoint
 BINS += bin/random
 BINS += bin/random-files
+BINS += bin/ma-pipe-unidir
 
 all: aggregate
 
@@ -69,6 +70,10 @@ bin/random-files:
 	@echo "*** building $@ ***"
 	go get -d github.com/jbenet/go-random-files
 	go build -o $@ github.com/jbenet/go-random-files/random-files
+
+bin/ma-pipe-unidir:
+	@echo "*** building $@ ***"
+	cd dependencies/ma-pipe-unidir && go build -o ../../$@
 
 curl:
 	@which curl >/dev/null || (echo "Please install curl!" && false)
