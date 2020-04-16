@@ -93,6 +93,13 @@ bin/iptb:
 	@echo "*** building $@ ***"
 	go build -o $@ "$(call gx-path,$(notdir $@))"
 
+IPFS_DEF != which ipfs
+IPFS_CMD ?= $(IPFS_DEF)
+
+bin/ipfs:
+	@echo "*** building $@ ***"
+	cd bin && ln -sf $(IPFS_CMD) ipfs
+
 curl:
 	@which curl >/dev/null || (echo "Please install curl!" && false)
 

@@ -54,6 +54,16 @@ For example:
 $ ./t0010-basic-commands.sh -v -i
 ```
 
+## Running against a different ipfs executable
+
+Tests use `bin/ipfs`, by default when bootstrapping dependencies a symlink
+will be created to the first `ipfs` executable found the your `$PATH`. Use the
+`IPFS_CMD` environment variable to set an explicit executable.
+
+```
+$ IPFS_CMD=/path/to/different/ipfs make deps
+```
+
 ## Sharness
 
 When running sharness tests from main Makefile or when `test_sharness_deps`
